@@ -15,8 +15,6 @@ export default class Game extends React.Component {
 			<div>
 				<Header />
 				<GuessSection />
-				<GuessCount />
-				<GuessList />
 			</div>
 		);
 	}

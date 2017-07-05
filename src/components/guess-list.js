@@ -3,7 +3,10 @@ import './guess-list.css';
 
 export default function GuessList() {
 	return (
-		<div>
+		<div className="guess-list">
+			<ul>
+				<li>50</li>
+			</ul>
 		</div>
-	);
+	); 
 }
