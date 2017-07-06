@@ -1,13 +1,39 @@
 import React from 'react';
 
 import './header.css';
-import TopNav from './top-nav';
 
-export default function Header() {
-	return (
-		<header>
-			<TopNav></TopNav>
-			<h1>HOT or COLD</h1>
-		</header>
-	);
-}
+import TopNav from './top-nav';
+import InfoModal from './info-modal';
+
+
+export default class Header extends React.Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			showInfoModal: false
+		};
+	}
+
+	toggleInfoModal() {
+		this.setState({
+			showInfoModal: !this.state.showInfoModal
+		});
+	}
+
+	render() {
+		let infoModal;
+		if(this.state.showInfoModal) {
+			infoModal = <InfoModal onClose={() => this.toggleInfoModal()} />;
+		}
+
+		return (
+			<header>
+				<TopNav onInfo={() => this.toggleInfoModal()}
+					onNewGame={this.props.onNewGame} />
+				{infoModal}
+				<h1>HOT or COLD</h1>
+			</header>
+		);
+	}
+	
+};
