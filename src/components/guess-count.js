@@ -1,10 +1,10 @@
 import React from 'react';
 import './guess-count.css';
 
-export default function GuessCount() {
+export default function GuessCount(props) {
 	return (
-		<div>
-			<p>Guess #000000!</p>
-		</div>
+		<p>
+			Guess #<span id="count">{props.count}</span>!
+		</p>
 	);
 }
